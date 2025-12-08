@@ -318,8 +318,8 @@ $employee = mysqli_fetch_assoc($result);
 					<span><strong>Department:</strong> <?php echo $employee['dept']; ?></span>
 				</div>
 				<div class="info-item">
-					<i class="fas fa-dollar-sign"></i>
-					<span><strong>Current Salary:</strong> $<?php echo number_format($employee['total']); ?></span>
+					<i class="fas fa-rupee-sign"></i>
+					<span><strong>Current Salary:</strong> ₹<?php echo number_format($employee['total']); ?></span>
 				</div>
 			</div>
 		</div>
@@ -361,9 +361,9 @@ $employee = mysqli_fetch_assoc($result);
 				<h3><i class="fas fa-edit"></i> Manual Adjustment</h3>
 				
 				<div class="form-group">
-					<label><i class="fas fa-dollar-sign"></i> Base Salary</label>
+					<label><i class="fas fa-rupee-sign"></i> Base Salary</label>
 					<div class="input-wrapper">
-						<i class="fas fa-dollar-sign input-icon"></i>
+						<i class="fas fa-rupee-sign input-icon"></i>
 						<input type="number" name="base_salary" id="baseSalary" value="<?php echo $employee['base']; ?>" required oninput="calculateTotal()">
 					</div>
 				</div>
@@ -382,15 +382,15 @@ $employee = mysqli_fetch_assoc($result);
 				<h4><i class="fas fa-calculator"></i> Salary Calculation</h4>
 				<div class="calc-row">
 					<span class="calc-label">Base Salary:</span>
-					<span class="calc-value" id="displayBase">$<?php echo number_format($employee['base']); ?></span>
+					<span class="calc-value" id="displayBase">₹<?php echo number_format($employee['base']); ?></span>
 				</div>
 				<div class="calc-row">
 					<span class="calc-label">Bonus (<span id="displayBonusPercent"><?php echo $employee['bonus']; ?></span>%):</span>
-					<span class="calc-value" id="displayBonus">$<?php echo number_format($employee['base'] * $employee['bonus'] / 100); ?></span>
+					<span class="calc-value" id="displayBonus">₹<?php echo number_format($employee['base'] * $employee['bonus'] / 100); ?></span>
 				</div>
 				<div class="calc-row">
 					<span class="calc-label">Total Salary:</span>
-					<span class="calc-value" id="displayTotal">$<?php echo number_format($employee['total']); ?></span>
+					<span class="calc-value" id="displayTotal">₹<?php echo number_format($employee['total']); ?></span>
 				</div>
 			</div>
 			
@@ -428,10 +428,10 @@ $employee = mysqli_fetch_assoc($result);
 			const total = base + bonusAmount;
 			
 			// Update display
-			document.getElementById('displayBase').textContent = '$' + base.toLocaleString();
+			document.getElementById('displayBase').textContent = '₹' + base.toLocaleString('en-IN');
 			document.getElementById('displayBonusPercent').textContent = bonusPercent;
-			document.getElementById('displayBonus').textContent = '$' + bonusAmount.toLocaleString();
-			document.getElementById('displayTotal').textContent = '$' + total.toLocaleString();
+			document.getElementById('displayBonus').textContent = '₹' + bonusAmount.toLocaleString('en-IN');
+			document.getElementById('displayTotal').textContent = '₹' + total.toLocaleString('en-IN');
 		}
 		
 		// Initialize calculation

@@ -329,7 +329,7 @@ $result3 = mysqli_query($conn, $sql3);
 		
 		<div class="stat-box">
 			<i class="fas fa-money-bill-wave" style="color: #10b981;"></i>
-			<h3>$<?php 
+			<h3>₹<?php 
 				$salData = mysqli_query($conn, "SELECT total FROM salary WHERE id = $id");
 				$salTotal = mysqli_fetch_assoc($salData);
 				echo number_format($salTotal['total']);
@@ -403,7 +403,7 @@ $result3 = mysqli_query($conn, $sql3);
 
 
 
-		<h2><i class="fas fa-dollar-sign"></i> Salary Status <i class="fas fa-money-check-alt"></i></h2>
+		<h2><i class="fas fa-rupee-sign"></i> Salary Status <i class="fas fa-money-check-alt"></i></h2>
     	
 
     	<table>
@@ -425,9 +425,9 @@ $result3 = mysqli_query($conn, $sql3);
 					echo "<tr>";
 					
 					
-					echo "<td>".$employee['base']."</td>";
+					echo "<td>₹".number_format($employee['base'])."</td>";
 					echo "<td>".$employee['bonus']." %</td>";
-					echo "<td>".$employee['total']."</td>";
+					echo "<td>₹".number_format($employee['total'])."</td>";
 					
 				}
 
